@@ -56,12 +56,18 @@ Instruction override attacks were observed to be the most effective, demonstrati
 
 Key Insight
 
-The baseline results confirm that LLM systems without input validation or filtering are susceptible to prompt injection attacks, even in a simple setup.
-
-Next Steps
-
-Implement rule-based prompt injection detection
-
-Compare baseline vs filtered results
-
-Evaluate reduction in attack success rate
+The experimental evaluation demonstrates that the baseline system is significantly 
+vulnerable to prompt injection attacks, with a success rate of 40% attacks. After introducing 
+the rule-based filtering mechanism, the attack success rate decreased to approximately 
+13%, representing a reduction of about 67%. 
+The detection module successfully blocked 10 out of 15 malicious prompts, achieving a 
+detection rate of 67%. A more detailed analysis shows that the defense mechanism was 
+highly effective against role manipulation and system prompt extraction attacks, achieving 
+a 0% success rate for these categories after filtering. However, instruction override attacks 
+remained partially successful, with 2 out of 5 prompts bypassing detection. 
+No false positives were observed in this phase, as the dataset consisted entirely of 
+adversarial prompts. However, false negatives were identified, indicating that rule-based 
+detection may fail to capture more subtle or varied attack patterns. 
+Overall, the results indicate that simple rule-based filtering can significantly improve the 
+security of LLM-based systems, but additional mechanisms are required to achieve 
+comprehensive protection against prompt injection attacks.
